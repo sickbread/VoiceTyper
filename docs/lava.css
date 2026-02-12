@@ -27,7 +27,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: crosshair;
 }
 
 body {
@@ -71,7 +70,7 @@ body::after {
     padding: 0 4rem;
 }
 
-/* HUD Decorators */
+/* HUD Decorators - Static & Sharp */
 .hud-line {
     position: fixed;
     background: var(--border-vaint);
@@ -151,14 +150,13 @@ body::after {
     color: var(--accent-red);
 }
 
-/* Editorial Hero */
+/* Editorial Hero - Flat but Powerful */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10rem 0;
-    perspective: 2000px;
 }
 
 .hero-content {
@@ -193,25 +191,21 @@ body::after {
     height: 6px;
     background: var(--accent-red);
     border-radius: 50%;
-    animation: pulse 2s infinite;
+    animation: pulse 2.5s ease-in-out infinite;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-        box-shadow: 0 0 0 0 var(--accent-glow);
-    }
 
-    70% {
-        transform: scale(1.5);
-        opacity: 0;
-        box-shadow: 0 0 0 10px var(--accent-glow);
-    }
-
+    0%,
     100% {
         transform: scale(1);
-        opacity: 0;
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.6);
+        opacity: 1;
+        filter: blur(1px);
     }
 }
 
@@ -233,35 +227,30 @@ h1 {
     line-height: 1.6;
 }
 
-/* 3D Showcase */
+/* Layered Flat Showcase */
 .showcase-wrapper {
     position: relative;
-    transform: rotateY(-15deg) rotateX(5deg);
-    transition: transform 0.8s var(--ease-out);
-}
-
-.showcase-wrapper:hover {
-    transform: rotateY(-5deg) rotateX(2deg);
+    padding: 2rem;
 }
 
 .main-screen {
     width: 100%;
+    border-radius: 8px;
     border: 1px solid var(--border-vaint);
     background: #000;
-    box-shadow: -40px 40px 100px rgba(0, 0, 0, 0.8),
-        0 0 0 1px var(--border-vaint);
-    transform-style: preserve-3d;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+    display: block;
 }
 
 .secondary-screen {
     position: absolute;
-    bottom: -10%;
-    right: -15%;
-    width: 60%;
+    bottom: -15%;
+    right: -10%;
+    width: 65%;
+    border-radius: 8px;
     border: 1px solid var(--accent-red);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
     z-index: 10;
-    transform: translateZ(50px);
 }
 
 /* Content Sections */
@@ -336,7 +325,7 @@ section {
     padding: 6rem;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    border-radius: 12px;
 }
 
 .cta-box::before {
@@ -360,12 +349,14 @@ section {
     letter-spacing: 0.1em;
     font-size: 0.8rem;
     transition: var(--ease-out);
+    border-radius: 2px;
 }
 
 .btn-prime:hover {
     background: var(--accent-red);
     color: #fff;
     transform: translateY(-5px);
+    box-shadow: 0 20px 40px var(--accent-dim);
 }
 
 /* Features - Technical Matrix */
@@ -387,16 +378,10 @@ section {
     background: var(--bg-deep);
 }
 
-.feat-cell:hover .feat-icon {
-    color: #fff;
-    transform: scale(1.1);
-}
-
 .feat-icon {
     font-size: 2rem;
     color: var(--accent-red);
     margin-bottom: 3rem;
-    transition: var(--ease-out);
 }
 
 .feat-label {
@@ -469,5 +454,11 @@ footer {
 
     .hud-line {
         display: none;
+    }
+
+    .secondary-screen {
+        width: 80%;
+        bottom: -10%;
+        right: -5%;
     }
 }
