@@ -10,7 +10,8 @@
     --accent-muted: rgba(204, 0, 0, 0.08);
     --border: #1a1a1a;
     --grid-color: rgba(204, 0, 0, 0.03);
-    --font-main: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+    --font-main: 'Outfit', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
 }
 
 * {
@@ -106,13 +107,14 @@ body {
 }
 
 h1 {
-    font-size: 5rem;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    font-family: var(--font-heading);
+    font-size: 5.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #fff 40%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 2px;
-    font-weight: 800;
+    letter-spacing: -0.04em;
+    font-weight: 700;
 }
 
 .hero-subtitle {
@@ -208,13 +210,15 @@ section {
 }
 
 .philosophy-item h3 {
+    font-family: var(--font-heading);
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     color: #fff;
     border-left: 4px solid var(--accent);
     padding-left: 1.5rem;
     margin-left: -1.5rem;
-    letter-spacing: 1px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
 }
 
 .philosophy-item p {
