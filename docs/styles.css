@@ -417,6 +417,36 @@ section::after {
     background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
 }
 
+/* Legal Notices Section */
+.legal-notices {
+    background: rgba(10, 0, 0, 0.5);
+    border-top: 1px solid var(--accent-dim);
+}
+
+.legal-container {
+    background: #050505;
+    border: 1px solid #222;
+    padding: 2rem;
+    font-size: 0.85rem;
+    color: #777;
+    white-space: pre-wrap;
+    font-family: var(--font-body);
+    line-height: 1.6;
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.legal-container::before {
+    content: "OPEN_SOURCE_LICENSE_v1.0";
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    font-size: 0.6rem;
+    color: var(--accent-dim);
+    letter-spacing: 2px;
+}
+
 /* Responsive fixes */
 @media (max-width: 768px) {
     h1 {
