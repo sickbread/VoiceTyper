@@ -5,8 +5,9 @@
     --text-main: #f0f0f0;
     --text-secondary: #aaaaaa;
     --text-muted: #555555;
-    --accent: #cc0000;
-    --accent-hover: #ff1a1a;
+    --accent: #ff2a2a;
+    --accent-gold: #f5d1b0;
+    --accent-hover: #ff4d4d;
     --accent-muted: rgba(204, 0, 0, 0.08);
     --border: #1a1a1a;
     --grid-color: rgba(204, 0, 0, 0.03);
@@ -110,11 +111,12 @@ h1 {
     font-family: var(--font-heading);
     font-size: 5.5rem;
     margin-bottom: 2rem;
-    background: linear-gradient(135deg, #fff 40%, var(--accent) 100%);
+    background: linear-gradient(135deg, var(--accent-gold) 20%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.04em;
     font-weight: 700;
+    text-shadow: 0 10px 40px rgba(255, 42, 42, 0.2);
 }
 
 .hero-subtitle {
@@ -144,9 +146,10 @@ h1 {
 }
 
 .btn:hover {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 0 30px var(--accent);
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent));
+    color: #000;
+    box-shadow: 0 0 40px rgba(245, 209, 176, 0.3);
+    border-color: transparent;
 }
 
 /* Product Showcase */
