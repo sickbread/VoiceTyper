@@ -118,16 +118,17 @@ body::before {
     opacity: 0.8;
 }
 
-font-family: var(--font-heading);
-font-size: clamp(6.5rem, 16vw, 15rem);
-font-weight: 900;
-letter-spacing: -0.05em;
-line-height: 0.75;
-margin-bottom: 5rem;
-text-transform: uppercase;
-background: linear-gradient(180deg, var(--lava-glow) 40%, rgba(204, 0, 0, 0.4) 100%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(6.5rem, 16vw, 15rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.75;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, var(--lava-glow) 40%, rgba(204, 0, 0, 0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
@@ -194,13 +195,15 @@ section {
     padding: 15rem 0;
 }
 
-font-family: var(--font-heading);
-font-size: 5rem;
-font-weight: 800;
-letter-spacing: -0.04em;
-margin-bottom: 8rem;
-text-align: center;
-text-transform: capitalize;
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 8rem;
+    text-align: center;
+    text-transform: capitalize;
+}
 
 .philosophy-grid {
     display: grid;
@@ -215,11 +218,13 @@ text-transform: capitalize;
     border: 1px solid var(--border-vaint);
 }
 
-font-family: var(--font-sub);
-font-size: 2.25rem;
-margin-bottom: 2rem;
-font-weight: 700;
-letter-spacing: -0.02em;
+.phi-card h3 {
+    font-family: var(--font-sub);
+    font-size: 2.25rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
 
 .phi-card p {
     color: var(--text-sub);
