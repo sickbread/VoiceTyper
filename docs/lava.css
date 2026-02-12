@@ -33,6 +33,15 @@ body {
     overflow-x: hidden;
 }
 
+.t-lang {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.t-lang.switching {
+    opacity: 0;
+    transform: translateY(4px);
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -78,6 +87,32 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
+    color: var(--accent);
+}
+
+.lang-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.lang-toggle:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.lang-toggle.active {
+    background: var(--accent-muted);
+    border-color: var(--accent);
     color: var(--accent);
 }
 

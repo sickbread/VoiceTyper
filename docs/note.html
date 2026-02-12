@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Outfit:wght@300..700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..1000&family=Outfit:wght@300..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -19,26 +19,30 @@
     <nav class="navbar">
         <a href="index.html" class="logo">04_ARCHIVE</a>
         <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="voice.html" class="nav-link">Voice Force</a>
-            <a href="note.html" class="nav-link active">Lava Archive</a>
+            <a href="index.html" class="nav-link t-lang" data-en="Home" data-kr="홈">홈</a>
+            <a href="voice.html" class="nav-link t-lang" data-en="Voice Force" data-kr="보이스 포스">보이스 포스</a>
+            <a href="note.html" class="nav-link active t-lang" data-en="Lava Archive" data-kr="라바 아카이브">라바 아카이브</a>
+            <button class="lang-toggle" id="langToggle">EN / KR</button>
         </div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <div class="terminal-meta">Knowledge Management</div>
-            <h1>LAVA_ARCHIVE</h1>
-            <p class="hero-subtitle">The ultimate archiving solution for writers, world-builders, and lore masters.
-                Build worlds that last.</p>
+            <div class="terminal-meta t-lang" data-en="Knowledge Management" data-kr="지식 매니지먼트">지식 매니지먼트</div>
+            <h1 class="t-lang" data-en="LAVA_ARCHIVE" data-kr="라바 아카이브">라바 아카이브</h1>
+            <p class="hero-subtitle t-lang"
+                data-en="The ultimate archiving solution for writers, world-builders, and lore masters. Build worlds that last."
+                data-kr="작가, 세계관 설계자, 로어 마스터를 위한 궁극의 아카이빙 솔루션. 영원히 지속될 세계를 구축하세요.">작가, 세계관 설계자, 로어 마스터를 위한 궁극의 아카이빙 솔루션.
+                영원히 지속될 세계를 구축하세요.</p>
             <a href="https://github.com/sickbread/VoiceTyper/releases/download/v1.0/VESTIGE_Setup_0.0.0.exe" class="btn"
-                target="_blank" rel="noopener noreferrer" download>Download Alpha</a>
+                target="_blank" rel="noopener noreferrer" download>
+                <span class="t-lang" data-en="Download Alpha" data-kr="알파 버전 다운로드">알파 버전 다운로드</span>
+            </a>
 
             <!-- Product Showcase Area -->
             <div class="showcase-container">
-                <img src="assets/lava_main.png" alt="Lava Archive Editor" class="showcase-image"
-                    style="opacity: 1; filter: none;">
-                <div class="mobile-overlay" style="border: 1px solid var(--border); overflow: hidden;">
+                <img src="assets/lava_main.png" alt="Lava Archive Editor" class="showcase-image">
+                <div class="mobile-overlay">
                     <img src="assets/lava_secondary.png" alt="Lava Archive Canvas"
                         style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
@@ -51,59 +55,75 @@
         <div class="philosophy-grid">
             <div class="philosophy-list">
                 <div class="philosophy-item">
-                    <h3>Your worlds are yours.</h3>
-                    <p>Lava Archive stores your narratives privately on your own device. No cloud mining, no shared
-                        servers. Your secrets remain yours.</p>
+                    <h3 class="t-lang" data-en="Your worlds are yours." data-kr="당신의 세계는 당신의 것입니다.">당신의 세계는 당신의 것입니다.
+                    </h3>
+                    <p class="t-lang"
+                        data-en="Lava Archive stores your narratives privately on your own device. No cloud mining, no shared servers. Your secrets remain yours."
+                        data-kr="라바 아카이브는 당신의 이야기를 개인 기기에 비밀리에 저장합니다. 클라우드 마이닝도, 공유 서버도 없습니다. 당신의 비밀은 오직 당신의 것입니다.">라바
+                        아카이브는 당신의 이야기를 개인 기기에 비밀리에 저장합니다. 클라우드 마이닝도, 공유 서버도 없습니다. 당신의 비밀은 오직 당신의 것입니다.</p>
                 </div>
                 <div class="philosophy-item">
-                    <h3>Your logic is unique.</h3>
-                    <p>With a flexible bi-directional linking system, you can connect ideas as they form. Shape the
-                        archive to fit your specific way of world-building.</p>
+                    <h3 class="t-lang" data-en="Your logic is unique." data-kr="당신의 논리는 독특합니다.">당신의 논리는 독특합니다.</h3>
+                    <p class="t-lang"
+                        data-en="With a flexible bi-directional linking system, you can connect ideas as they form. Shape the archive to fit your specific way of world-building."
+                        data-kr="유연한 양방향 링크 시스템을 통해 구상하는 대로 아이디어를 연결할 수 있습니다. 당신만의 고유한 세계관 구축 방식에 맞춰 아카이브를 형성하세요.">유연한
+                        양방향 링크 시스템을 통해 구상하는 대로 아이디어를 연결할 수 있습니다. 당신만의 고유한 세계관 구축 방식에 맞춰 아카이브를 형성하세요.</p>
                 </div>
                 <div class="philosophy-item">
-                    <h3>Your lore should last.</h3>
-                    <p>Using open and standard formats, you're never locked in. Your creative history is preserved for
-                        the long term, regardless of software updates.</p>
+                    <h3 class="t-lang" data-en="Your lore should last." data-kr="당신의 로어는 지속되어야 합니다.">당신의 로어는 지속되어야 합니다.
+                    </h3>
+                    <p class="t-lang"
+                        data-en="Using open and standard formats, you're never locked in. Your creative history is preserved for the long term, regardless of software updates."
+                        data-kr="개방형 표준 포맷을 사용하여 어디에도 얽매이지 않습니다. 소프트웨어 업데이트와 관계없이 당신의 창의적인 역사는 장기적으로 보존됩니다.">개방형 표준 포맷을
+                        사용하여 어디에도 얽매이지 않습니다. 소프트웨어 업데이트와 관계없이 당신의 창의적인 역사는 장기적으로 보존됩니다.</p>
                 </div>
             </div>
             <div class="philosophy-cta">
-                <div class="philosophy-logo" style="background: var(--bg-surface); border: 1px solid var(--border);">
-                    <i class="fas fa-shield-halved" style="color: var(--accent); font-size: 3rem;"></i>
+                <div class="philosophy-logo">
+                    <i class="fas fa-shield-halved"></i>
                 </div>
                 <div style="text-align: center;">
-                    <p style="font-weight: 700; margin-bottom: 0.5rem;">Lava Archive</p>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Development Phase.
-                    </p>
+                    <p style="font-weight: 700; margin-bottom: 0.5rem;" class="t-lang" data-en="Lava Archive"
+                        data-kr="라바 아카이브">라바 아카이브</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;" class="t-lang"
+                        data-en="Development Phase." data-kr="개발 단계.">개발 단계.</p>
                     <a href="https://github.com/sickbread/VoiceTyper/releases/download/v1.0/VESTIGE_Setup_0.0.0.exe"
-                        class="nav-link" style="color: var(--text-secondary); font-weight: 600;">Early Access</a>
+                        class="nav-link t-lang" data-en="Early Access" data-kr="얼리 액세스" style="font-weight: 600;">얼리
+                        액세스</a>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="container" style="border-top: 1px solid var(--border);">
-        <h2 style="text-align: left; font-size: 2rem; margin-bottom: 2rem;">Capabilities</h2>
+        <h2 style="text-align: left; font-size: 2rem; margin-bottom: 2rem;" class="t-lang" data-en="Capabilities"
+            data-kr="주요 기능">주요 기능</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <i class="fas fa-sitemap feature-icon"></i>
-                <h3 class="feature-title">Structured Lore</h3>
-                <p>Organize complex world settings and character relationships hierarchically.</p>
+                <h3 class="feature-title t-lang" data-en="Structured Lore" data-kr="구조화된 로어">구조화된 로어</h3>
+                <p class="t-lang" data-en="Organize complex world settings and character relationships hierarchically."
+                    data-kr="복잡한 세계관 설정과 캐릭터 관계를 계층적으로 조직화하세요.">복잡한 세계관 설정과 캐릭터 관계를 계층적으로 조직화하세요.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-link feature-icon"></i>
-                <h3 class="feature-title">Bi-directional Linking</h3>
-                <p>Create a living world through organic connections between your database entries.</p>
+                <h3 class="feature-title t-lang" data-en="Bi-directional Linking" data-kr="양방향 연결">양방향 연결</h3>
+                <p class="t-lang"
+                    data-en="Create a living world through organic connections between your database entries."
+                    data-kr="데이터베이스 항목 간의 유기적인 연결을 통해 살아있는 세계를 만드세요.">데이터베이스 항목 간의 유기적인 연결을 통해 살아있는 세계를 만드세요.</p>
             </div>
             <div class="feature-card">
                 <i class="fas fa-file-code feature-icon"></i>
-                <h3 class="feature-title">Modern Stack</h3>
-                <p>Built on Electron and React for a high-performance desktop environment.</p>
+                <h3 class="feature-title t-lang" data-en="Modern Stack" data-kr="모던 스택">모던 스택</h3>
+                <p class="t-lang" data-en="Built on Electron and React for a high-performance desktop environment."
+                    data-kr="고성능 데스크톱 환경을 위해 Electron과 React로 제작되었습니다.">고성능 데스크톱 환경을 위해 Electron과 React로 제작되었습니다.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 04_ARCHIVE. All rights reserved.</p>
+        <p class="t-lang" data-en="&copy; 2026 04_ARCHIVE. All rights reserved."
+            data-kr="&copy; 2026 04_ARCHIVE. 모든 권리 보유.">&copy; 2026 04_ARCHIVE. 모든 권리 보유.</p>
     </footer>
 
     <script src="script.js"></script>
