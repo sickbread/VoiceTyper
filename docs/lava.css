@@ -146,9 +146,10 @@ body::after {
 .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding-top: 10rem;
+    gap: 4rem;
+    padding-top: 8rem;
     position: relative;
 }
 
@@ -169,12 +170,12 @@ body::after {
 
 h1 {
     font-family: var(--font-heading);
-    font-size: clamp(6rem, 18vw, 16rem);
+    font-size: clamp(4rem, 10vw, 8.5rem);
     font-weight: 900;
-    line-height: 0.75;
-    letter-spacing: -0.06em;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
     text-transform: uppercase;
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
     background: linear-gradient(135deg, var(--text-titanium) 60%, var(--lava-deep) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -211,15 +212,13 @@ h1 {
     box-shadow: 0 0 40px var(--lava-glow);
 }
 
-/* Product Showcase - Asymmetrical Stack */
+/* Product Showcase - Stable Containment */
 .showcase {
-    position: absolute;
-    right: 0;
-    width: 45vw;
-    height: 80vh;
+    position: relative;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .img-stack {
@@ -229,8 +228,8 @@ h1 {
 
 .main-img {
     width: 100%;
+    max-width: 800px;
     border: 1px solid var(--border-hairline);
-    mask-image: linear-gradient(to right, black 80%, transparent);
     box-shadow: 0 80px 100px -40px rgba(0, 0, 0, 1);
 }
 
