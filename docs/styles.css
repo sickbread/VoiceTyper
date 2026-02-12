@@ -185,17 +185,17 @@ h1 {
 
 /* Grid & Layout */
 .container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 0 2rem;
 }
 
 section {
-    padding: 6rem 0;
+    padding: 8rem 0;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     margin-bottom: 3.5rem;
     text-align: center;
 }
