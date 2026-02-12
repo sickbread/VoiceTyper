@@ -1,42 +1,46 @@
 :root {
-    /* The Singular Horizon Palette */
+    /* Obsidian Noir Blueprint Palette */
     --bg-black: #000000;
-    --bg-accent: #110000;
-    --lava-glow: #ff2a2a;
+    --bg-deep: #050505;
+    --bg-surface: #0a0a0c;
 
-    --text-pure: #e0d0d0;
-    /* Pale Red-Gray */
-    --text-dim: rgba(180, 160, 160, 0.45);
-    --text-sub: rgba(200, 180, 180, 0.65);
+    --lava-primary: #ff1a1a;
+    --lava-deep: #440000;
+    --lava-glow: rgba(255, 26, 26, 0.4);
 
-    --border-vaint: rgba(255, 42, 42, 0.1);
-    --border-red: rgba(255, 42, 42, 0.3);
+    --text-titanium: #e0d0d0;
+    --text-ghost: rgba(224, 208, 208, 0.4);
+    --text-dead: #2a2a2e;
+
+    --border-hairline: rgba(255, 26, 26, 0.12);
+    --border-dim: rgba(255, 255, 255, 0.03);
 
     --font-heading: 'Syne', sans-serif;
     --font-sub: 'Space Grotesk', sans-serif;
     --font-sans: 'Outfit', sans-serif;
     --font-mono: 'Share Tech Mono', monospace;
 
-    --ease: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Base Optimization */
+/* Base Level Architecture */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: crosshair;
 }
 
 body {
     background-color: var(--bg-black);
-    color: var(--text-pure);
+    color: var(--text-titanium);
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.4;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
-/* The Lava Core - Hypnotic Mesh Background */
+/* Background Blueprint Overlay */
 body::before {
     content: "";
     position: fixed;
@@ -44,20 +48,33 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background:
-        radial-gradient(circle at 50% -10%, #300000 0%, transparent 60%),
-        radial-gradient(circle at 100% 100%, #150000 0%, transparent 40%);
+    background-image:
+        linear-gradient(var(--border-dim) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-dim) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: -2;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 10%, #150000 0%, transparent 70%);
     z-index: -1;
     pointer-events: none;
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1500px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 6rem;
 }
 
-/* Elite Minimal Navbar */
+/* Technical HUD Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -67,252 +84,335 @@ body::before {
     top: 0;
     width: 100%;
     z-index: 1000;
+    background: linear-gradient(to bottom, var(--bg-black), transparent);
 }
 
 .logo {
+    font-family: var(--font-mono);
     text-decoration: none;
-    color: var(--text-pure);
-    font-weight: 900;
-    font-size: 1.1rem;
-    letter-spacing: -0.05em;
-    text-transform: lowercase;
+    color: var(--lava-primary);
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.4em;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo::before {
+    content: "[04]";
+    color: var(--text-dead);
+    letter-spacing: 0;
 }
 
 .nav-links {
     display: flex;
-    gap: 4rem;
+    gap: 5rem;
 }
 
 .nav-link {
     text-decoration: none;
-    color: var(--text-dim);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    transition: all 0.4s var(--ease);
+    color: var(--text-ghost);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: var(--ease-in-out);
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--lava-primary);
+    transition: var(--ease-in-out);
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--text-pure);
+    color: var(--text-titanium);
 }
 
-/* The Singular Hero - Massive Scale */
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* The Architect's Hero - Asymmetrical Perfection */
 .hero {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
-    text-align: center;
-    padding: 12rem 0;
+    padding-top: 10rem;
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
 }
 
 .hero-tag {
     font-family: var(--font-mono);
-    color: var(--lava-glow);
-    font-size: 0.75rem;
-    letter-spacing: 0.3em;
+    color: var(--text-dead);
+    font-size: 0.6rem;
+    letter-spacing: 0.8em;
     text-transform: uppercase;
-    margin-bottom: 2rem;
-    opacity: 0.8;
+    margin-bottom: 3rem;
+    display: block;
 }
 
 h1 {
     font-family: var(--font-heading);
-    font-size: clamp(6.5rem, 16vw, 15rem);
+    font-size: clamp(6rem, 18vw, 16rem);
     font-weight: 900;
-    letter-spacing: -0.05em;
     line-height: 0.75;
-    margin-bottom: 5rem;
+    letter-spacing: -0.06em;
     text-transform: uppercase;
-    background: linear-gradient(180deg, var(--lava-glow) 40%, rgba(204, 0, 0, 0.4) 100%);
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, var(--text-titanium) 60%, var(--lava-deep) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--text-sub);
-    max-width: 700px;
+    font-size: 1.35rem;
+    color: var(--text-ghost);
+    max-width: 500px;
     margin-bottom: 5rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+    font-weight: 300;
+    line-height: 1.7;
 }
 
-.btn-singular {
+.btn-blueprint {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 2rem;
     padding: 1.5rem 4rem;
-    background: var(--text-pure);
-    color: var(--bg-black);
+    border: 1px solid var(--lava-primary);
+    color: var(--lava-primary);
     text-decoration: none;
-    font-weight: 800;
-    font-size: 1rem;
-    border-radius: 100px;
-    transition: all 0.5s var(--ease);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    transition: var(--ease-in-out);
 }
 
-.btn-singular:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 60px rgba(255, 42, 42, 0.3);
-    background: var(--lava-glow);
+.btn-blueprint:hover {
+    background: var(--lava-primary);
     color: #fff;
+    box-shadow: 0 0 40px var(--lava-glow);
 }
 
-/* Glass-Plate Product Showcase */
+/* Product Showcase - Asymmetrical Stack */
 .showcase {
-    width: 100%;
-    margin-top: 10rem;
-    position: relative;
-    max-width: 1100px;
-}
-
-.main-plate {
-    width: 100%;
-    border-radius: 20px;
-    border: 1px solid var(--border-vaint);
-    background: #000;
-    box-shadow: 0 100px 200px rgba(0, 0, 0, 1);
-    display: block;
-}
-
-.sub-plate {
     position: absolute;
-    bottom: -10%;
-    right: -10%;
-    width: 45%;
-    border-radius: 16px;
-    border: 1px solid var(--border-red);
+    right: 0;
+    width: 45vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-stack {
+    position: relative;
+    width: 100%;
+}
+
+.main-img {
+    width: 100%;
+    border: 1px solid var(--border-hairline);
+    mask-image: linear-gradient(to right, black 80%, transparent);
+    box-shadow: 0 80px 100px -40px rgba(0, 0, 0, 1);
+}
+
+.sub-img {
+    position: absolute;
+    bottom: -15%;
+    left: -20%;
+    width: 60%;
+    border: 1px solid var(--lava-primary);
     box-shadow: 0 40px 80px rgba(0, 0, 0, 1);
-    background: #000;
     z-index: 10;
 }
 
-/* Minimalist Sections */
+/* Section Architecture */
 section {
     padding: 15rem 0;
+    position: relative;
 }
 
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 5rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    margin-bottom: 8rem;
-    text-align: center;
-    text-transform: capitalize;
+.v-text {
+    position: absolute;
+    left: 2rem;
+    top: 15rem;
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-dead);
+    letter-spacing: 0.8em;
+    text-transform: uppercase;
 }
 
-.philosophy-grid {
+.blueprint-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6rem;
+    gap: 12rem;
 }
 
-.phi-card {
-    padding: 4rem;
-    border-radius: 24px;
-    background: rgba(255, 42, 42, 0.02);
-    border: 1px solid var(--border-vaint);
+.phi-node {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid var(--border-hairline);
 }
 
-.phi-card h3 {
+.phi-node .node-id {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--lava-primary);
+    position: absolute;
+    top: 0;
+    left: -2.5rem;
+}
+
+.phi-node h3 {
     font-family: var(--font-sub);
-    font-size: 2.25rem;
-    margin-bottom: 2rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+    text-transform: lowercase;
 }
 
-.phi-card p {
-    color: var(--text-sub);
+.phi-node p {
     font-size: 1.15rem;
-    line-height: 1.6;
+    color: var(--text-ghost);
+    max-width: 440px;
+    line-height: 1.8;
 }
 
-/* Matrix Capabilities */
+/* Data Matrix - Blueprint Cells */
 .matrix {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 0;
+    border: 1px solid var(--border-hairline);
 }
 
-.matrix-item {
-    text-align: left;
-    padding: 2rem;
+.matrix-cell {
+    padding: 6rem 4rem;
+    border-right: 1px solid var(--border-hairline);
+    transition: var(--ease-in-out);
+    position: relative;
+    background: var(--bg-black);
 }
 
-.matrix-icon {
-    font-size: 1.25rem;
-    color: var(--lava-glow);
-    margin-bottom: 2rem;
+.matrix-cell:last-child {
+    border-right: none;
 }
 
-.matrix-item h4 {
+.matrix-cell:hover {
+    background: var(--bg-surface);
+}
+
+.cell-ico {
+    font-size: 1.5rem;
+    color: var(--lava-primary);
+    margin-bottom: 3rem;
+    display: block;
+}
+
+.cell-title {
+    font-family: var(--font-sub);
     font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
 }
 
-.matrix-item p {
-    color: var(--text-dim);
-    font-size: 1rem;
-}
-
-/* The Horizon CTA */
-.cta-horizon {
-    padding: 15rem 0;
-    text-align: center;
-    background: radial-gradient(circle at 50% 50%, #150000 0%, transparent 70%);
-}
-
-/* Footer Minimal */
-footer {
-    padding: 8rem 0;
-    border-top: 1px solid var(--border-vaint);
-    text-align: center;
-}
-
-.footer-logo {
-    font-weight: 900;
+.cell-desc {
+    color: var(--text-ghost);
     font-size: 0.9rem;
-    color: var(--text-dim);
-    letter-spacing: -0.02em;
+    font-weight: 300;
 }
 
-/* Responsive Horizon */
-@media (max-width: 1024px) {
+/* Manifest Footer */
+footer {
+    padding: 10rem 0 5rem;
+    border-top: 1px solid var(--border-dim);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-info {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--text-dead);
+    letter-spacing: 0.4em;
+}
+
+/* Responsive Overhaul */
+@media (max-width: 1400px) {
     .container {
-        padding: 0 2.5rem;
+        padding: 0 4rem;
     }
 
-    .philosophy-grid,
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        margin: 0 auto 5rem;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .showcase {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 8rem;
+    }
+
+    .sub-img {
+        left: 5%;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .blueprint-grid,
     .matrix {
         grid-template-columns: 1fr;
     }
 
-    .navbar {
-        padding: 2rem 3.5rem;
+    .matrix-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border-hairline);
     }
 
     h1 {
-        font-size: 20vw;
+        font-size: 18vw;
     }
-}
 
-@media (max-width: 768px) {
-    .nav-links {
+    .v-text {
         display: none;
-    }
-
-    .sub-plate {
-        display: none;
-    }
-
-    section {
-        padding: 8rem 0;
     }
 }
