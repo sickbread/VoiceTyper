@@ -69,7 +69,7 @@ body::before {
 
 .logo {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-pure);
     font-weight: 900;
     font-size: 1.1rem;
     letter-spacing: -0.05em;
@@ -92,7 +92,7 @@ body::before {
 
 .nav-link:hover,
 .nav-link.active {
-    color: #fff;
+    color: var(--text-pure);
 }
 
 /* The Singular Hero - Massive Scale */
