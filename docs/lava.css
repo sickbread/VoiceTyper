@@ -12,8 +12,10 @@
     --border-vaint: rgba(255, 42, 42, 0.1);
     --border-red: rgba(255, 42, 42, 0.3);
 
-    --font-heading: 'Inter', -apple-system, system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-heading: 'Syne', sans-serif;
+    --font-sub: 'Space Grotesk', sans-serif;
+    --font-sans: 'Outfit', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
 
     --ease: cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -28,7 +30,7 @@
 body {
     background-color: var(--bg-black);
     color: var(--text-pure);
-    font-family: var(--font-heading);
+    font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -116,15 +118,16 @@ body::before {
     opacity: 0.8;
 }
 
-h1 {
-    font-size: clamp(6rem, 15vw, 14rem);
-    font-weight: 900;
-    letter-spacing: -0.07em;
-    line-height: 0.8;
-    margin-bottom: 4rem;
-    background: linear-gradient(180deg, var(--lava-glow) 40%, rgba(204, 0, 0, 0.4) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+font-family: var(--font-heading);
+font-size: clamp(6.5rem, 16vw, 15rem);
+font-weight: 900;
+letter-spacing: -0.05em;
+line-height: 0.75;
+margin-bottom: 5rem;
+text-transform: uppercase;
+background: linear-gradient(180deg, var(--lava-glow) 40%, rgba(204, 0, 0, 0.4) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
@@ -191,13 +194,13 @@ section {
     padding: 15rem 0;
 }
 
-.section-title {
-    font-size: 4rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    margin-bottom: 6rem;
-    text-align: center;
-}
+font-family: var(--font-heading);
+font-size: 5rem;
+font-weight: 800;
+letter-spacing: -0.04em;
+margin-bottom: 8rem;
+text-align: center;
+text-transform: capitalize;
 
 .philosophy-grid {
     display: grid;
@@ -212,12 +215,11 @@ section {
     border: 1px solid var(--border-vaint);
 }
 
-.phi-card h3 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.03em;
-}
+font-family: var(--font-sub);
+font-size: 2.25rem;
+margin-bottom: 2rem;
+font-weight: 700;
+letter-spacing: -0.02em;
 
 .phi-card p {
     color: var(--text-sub);
