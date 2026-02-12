@@ -1,16 +1,16 @@
 :root {
-    --bg-color: #000000;
-    --text-main: #C0C0C0;
-    --text-dim: #666666;
-    --accent: #FF0000;
-    /* Deep Red */
-    --accent-dim: #550000;
+    --bg-color: #0b0b0b;
+    --text-main: #d0d0d0;
+    --text-dim: #555555;
+    --accent: #cc0000;
+    --accent-glow: rgba(204, 0, 0, 0.4);
+    --accent-dim: #440000;
 
     --font-display: 'VT323', monospace;
     --font-body: 'JetBrains Mono', monospace;
 
-    --scanline-color: rgba(0, 0, 0, 0.5);
-    --crt-flicker: rgba(255, 0, 0, 0.02);
+    --grid-size: 40px;
+    --grid-color: rgba(255, 0, 0, 0.03);
 }
 
 * {
@@ -18,18 +18,34 @@
     padding: 0;
     box-sizing: border-box;
     cursor: crosshair;
-    /* Hardcore cursor */
 }
 
 body {
     background-color: var(--bg-color);
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
     color: var(--text-main);
     font-family: var(--font-body);
     line-height: 1.5;
     overflow-x: hidden;
     position: relative;
     font-size: 14px;
-    /* Terminal text usually small */
+}
+
+/* Vignette Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+    z-index: 9998;
 }
 
 /* CRT Scanline Overlay */
@@ -42,11 +58,12 @@ body::after {
     bottom: 0;
     right: 0;
     background: linear-gradient(to bottom,
-            rgba(18, 16, 16, 0) 50%,
-            rgba(0, 0, 0, 0.25) 50%);
-    background-size: 100% 4px;
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 0.15) 50%);
+    background-size: 100% 3px;
     z-index: 9999;
     pointer-events: none;
+    opacity: 0.8;
 }
 
 /* Typography */
@@ -65,7 +82,8 @@ h1 {
     font-size: 4rem;
     color: var(--accent);
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 0px var(--accent-dim);
+    text-shadow: 0 0 10px var(--accent-glow);
+    letter-spacing: 5px;
 }
 
 h2 {
@@ -74,6 +92,8 @@ h2 {
     border-left: 5px solid var(--accent);
     padding-left: 1rem;
     margin-bottom: 2rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px var(--accent-glow);
 }
 
 a {
@@ -169,17 +189,46 @@ section {
     display: inline-block;
     padding: 0.8rem 2rem;
     background: transparent;
-    border: 2px solid var(--accent);
+    border: 1px solid var(--accent);
     color: var(--accent);
     font-size: 1.5rem;
     transition: all 0.1s steps(2);
     margin-top: 2rem;
+    letter-spacing: 4px;
+    position: relative;
+    box-shadow: 0 0 5px var(--accent-dim);
 }
 
 .btn:hover {
     background: var(--accent);
     color: #000;
-    box-shadow: 0 0 15px var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Decorative brackets for buttons */
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--accent);
+    opacity: 0.5;
+}
+
+.btn::before {
+    top: -5px;
+    left: -5px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.btn::after {
+    bottom: -5px;
+    right: -5px;
+    border-left: 0;
+    border-top: 0;
 }
 
 /* Grid & Cards */
@@ -246,8 +295,9 @@ section {
     font-size: 0.9rem;
     color: var(--text-dim);
     margin-bottom: 1.5rem;
-    border-left: 2px solid #333;
+    border-left: 1px solid var(--accent-dim);
     padding-left: 1rem;
+    letter-spacing: 1px;
 }
 
 .card-tags {
@@ -320,10 +370,58 @@ footer {
     }
 }
 
-/* Responsive */
+/* Decorative Elements */
+.terminal-meta {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.hero-decoration {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 1.5rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.bracket {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.card-meta {
+    font-size: 0.7rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+}
+
+/* Enhanced Section Separators */
+section {
+    padding: 6rem 0;
+    border-bottom: 1px dashed var(--accent-dim);
+    position: relative;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+}
+
+/* Responsive fixes */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
+        letter-spacing: 2px;
     }
 
     .navbar {
@@ -332,8 +430,13 @@ footer {
     }
 
     .nav-links {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .hero-content {
+        padding: 2rem 1rem;
     }
 }
